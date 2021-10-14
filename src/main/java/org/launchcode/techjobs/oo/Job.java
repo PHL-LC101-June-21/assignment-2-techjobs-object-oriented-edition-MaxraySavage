@@ -58,7 +58,7 @@ public class Job {
                 "Employer: " + employerStr + "\n" +
                 "Location: " + locationStr + "\n" +
                 "Position Type: " + positionTypeStr + "\n" +
-                "Core competency: " + coreCompetencyStr + "\n";
+                "Core Competency: " + coreCompetencyStr + "\n";
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields

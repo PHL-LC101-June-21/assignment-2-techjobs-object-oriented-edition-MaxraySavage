@@ -71,7 +71,7 @@ public class JobTest {
                 "Employer: " + testJob.getEmployer() + "\n" +
                 "Location: " + testJob.getLocation() + "\n" +
                 "Position Type: " + testJob.getPositionType() + "\n" +
-                "Core competency: " + testJob.getCoreCompetency() + "\n";
+                "Core Competency: " + testJob.getCoreCompetency() + "\n";
 
         assertEquals(expectedStr, testJob.toString());
     }
@@ -86,7 +86,7 @@ public class JobTest {
                 "Employer: Data not available\n" +
                 "Location: Data not available\n" +
                 "Position Type: Data not available\n" +
-                "Core competency: Data not available\n";
+                "Core Competency: Data not available\n";
 
         assertEquals(expectedStr, testJob.toString());
     }
