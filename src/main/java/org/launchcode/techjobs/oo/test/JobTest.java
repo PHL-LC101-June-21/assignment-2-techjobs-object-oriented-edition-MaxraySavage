@@ -47,4 +47,57 @@ public class JobTest {
 
         assertFalse(job1.equals(job2));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String jobToString = testJob.toString();
+
+        char firstChar = jobToString.charAt(0);
+        char lastChar = jobToString.charAt(jobToString.length() - 1);
+
+        assertEquals('\n', firstChar);
+        assertEquals('\n', lastChar);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String expectedStr = "\n" +
+                "ID: " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: " + testJob.getEmployer() + "\n" +
+                "Location: " + testJob.getLocation() + "\n" +
+                "Position Type: " + testJob.getPositionType() + "\n" +
+                "Core competency: " + testJob.getCoreCompetency() + "\n";
+
+        assertEquals(expectedStr, testJob.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job testJob = new Job("Product tester", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        String expectedStr = "\n" +
+                "ID: " + testJob.getId() + "\n" +
+                "Name: " + testJob.getName() + "\n" +
+                "Employer: Data not available\n" +
+                "Location: Data not available\n" +
+                "Position Type: Data not available\n" +
+                "Core competency: Data not available\n";
+
+        assertEquals(expectedStr, testJob.toString());
+    }
+
+    @Test
+    public void testToStringHandlesAllEmptyFields() {
+        Job testJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        String expectedStr = "OOPS! This job does not seem to exist.";
+
+        assertEquals(expectedStr, testJob.toString());
+
+    }
 }
